@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/global.css">
 </head>
 <body>
-    <table>
+    <table class="table table-hover table-bordered">
     <tr>
         <th>Id</th>
         <th>Type</th>
@@ -28,13 +28,16 @@
         </tr>
     </tbody>
 </table>
-<a href="#" data-bind="click: previousPage, visible: pageIndex() > 0"><&nbsp;</a>
+<ul class="pagination">
+<li class="page-item"><a href="#" data-bind="click: previousPage, visible: pageIndex() > 0" class="page-link">«</a></li>
 
 <!-- ko foreach: numIndex -->
-<a href="#" data-bind="click: function () { $root.targetPage($index)}, text: $index()+1, css: {ison: $index() === $root.pageIndex()}"></a>
+<li class="page-item"><a href="#" data-bind="click: function () { $root.targetPage($index)}, text: $index()+1, css: {ison: $index() === $root.pageIndex()}" class="page-link"></a></li>
 
 <!-- /ko -->
-<a href="#" data-bind="click: nextPage, visible: pageIndex() < maxPageIndex()">&nbsp;></a>
+<li class="page-item"><a href="#" data-bind="click: nextPage, visible: pageIndex() < maxPageIndex()" class="page-link">»</a></li>
+</ul>
+
 
 </body>
 </html>
